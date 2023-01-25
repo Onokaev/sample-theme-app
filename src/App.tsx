@@ -1,10 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getTheme, ITheme, PrimaryButton } from '@fluentui/react';
 
 function App() {
+  const currentTheme: ITheme = getTheme();
+  const appStyle = {
+    background: currentTheme.semanticColors.bodyBackground
+  }
+  console.log(appStyle.background)
+  
   return (
-    <div className="App">
+    <div className="App" style={appStyle}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,6 +25,9 @@ function App() {
         >
           Learn React
         </a>
+        <PrimaryButton>
+          MyButton
+        </PrimaryButton>
       </header>
     </div>
   );
